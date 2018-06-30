@@ -2,8 +2,6 @@ package com.tifup.bling.dao;
 
 import com.tifup.bling.model.ItemModel;
 import org.apache.ibatis.annotations.*;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Mapper
@@ -11,19 +9,24 @@ public interface ItemMapper {
     @Select(" SELECT * FROM item WHERE item_id=#{item_id} ")
     ItemModel get(int item_id);
 
-    @Select(" SELECT * FROM item ")
+    @Select(" SELECT * FROM item ORDER BY ontime DESC LIMIT 100 ")
     List<ItemModel> getAll();
 
-    @Insert(" INSERT INTO item(product_id,intime,ontime,size,color,length,width,height,heavy,price,inventory,status,scaling,x,y,name,title,image_id) +" +
-            "values (#{product_id},#{intime},#{ontime},#{size},#{color},#{length},#{width},#{height},#{heavy},#{price},#{inventory},#{status},#{scaling},#{x},#{y},#{name},#{title},#{image_id}) ")
-    int add(ItemModel itemModel);
+    @Select(" SELECT * FROM item WHERE title likes #{keyword}  ORDER BY ontime DESC LIMIT 100 ")
+    List<ItemModel> search( String keyword);
 
-    @Delete(" DELETE * FROM item WHERE item_id=#{item_id ")
-    int del(int item_id);
+    //item_id,product_id,category_id,intime,ontime,price,inventory,status,name,title,brand,image,description
+    @Insert(" INSERT INTO item( product_id,category_id,intime,ontime,price,inventory,status,name,title,brand,image,description ) +" +
+            "values ( #{item_id},#{product_id},#{category_id},#{intime},#{ontime},#{price},#{inventory},#{status},#{name},#{title},#{brand},#{image},#{description} ) ")
+    @Options(useGeneratedKeys = true, keyProperty = "item_id", keyColumn = "item_id")
+    int insert(ItemModel itemModel);
+//    @Delete(" DELETE * FROM item WHERE item_id=#{item_id ")
+//    int del(int item_id);
 
-    @Update(" UPDATE item SET (product_id=#{product_id},intime=#{intime},ontime=#{ontime},size=#{size},color=#{color},length=#{length},width=#{width},height=#{height},heavy=#{heavy},price=#{price},inventory=#{inventory},status=#{status},scaling=#{scaling},x=#{x},y=#{y},name=#{name},title=#{title},image_id=#{image_id}) + " +
+    @Update(" UPDATE item SET ( product_id=#{product_id}, category_id=#{category_id}, intime=#{intime}, ontime=#{ontime}, price=#{price}, inventory=#{inventory}, status=#{status}, name=#{name}, title=#{title}, brand=#{brand}, image=#{image}, description=#{description}, ) + " +
             "WHERE item_id=#{item_id}  ")
-    int modify(ItemModel itemModel);
+    int update(ItemModel itemModel);
 
-
+//    @Select(  " SELECT item ")
+//    int topId();
 }

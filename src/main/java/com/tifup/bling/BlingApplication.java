@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.context.annotation.ComponentScan;
 
 //
 //@SpringBootApplication
@@ -13,6 +14,8 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 //        SpringApplication.run(BlingApplication.class, args);
 //    }
 //}
+//@ComponentScan(basePackages = {"com.tifup.bling.model"})
+//@ComponentScan("com.tifup.bling.controller")//包名
 @SpringBootApplication
 public class BlingApplication extends SpringBootServletInitializer {
 

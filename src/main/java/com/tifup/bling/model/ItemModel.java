@@ -5,7 +5,16 @@ import java.util.Date;
 
 public class ItemModel implements Serializable {
     private static final long serialVersionUID = 1L;
-    //item_id,product_id,intime,ontime,size,color,length,width,height,heavy,price,inventory,status,scaling,x,y,name,title,image_id
+    //item_id,product_id,category_id,intime,ontime,price,inventory,status,name,title,brand,image,description
+
+    public ItemModel() {
+        super();
+    }
+    public int getItem_id() {
+        return item_id;
+    }
+
+    public void setItem_id(int product_id) {        this.item_id = item_id;    }
 
     public int getProduct_id() {
         return product_id;
@@ -103,8 +112,6 @@ public class ItemModel implements Serializable {
         this.description = description;
     }
 
-
-
     public ItemModel(int product_id, int category_id, Date intime, Date ontime, int price, int inventory, int status, String name, String brand, String title, String image, String description) {
         this.product_id = product_id;
         this.category_id = category_id;
@@ -118,9 +125,6 @@ public class ItemModel implements Serializable {
         this.title = title;
         this.image = image;
         this.description = description;
-    }
-    public ItemModel() {
-        super();
     }
 
     int item_id;
