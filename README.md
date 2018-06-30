@@ -1,7 +1,7 @@
 Bling虚拟梳妆台
 ---------------
 
-原项目因为spring mvc+jsp+mybatis xml+maven
+原项目原为spring mvc+jsp+mybatis xml+maven
 
 现在用spring boot +freemarker+mabitis annotation+gradle
 
