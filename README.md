@@ -1,6 +1,8 @@
 Bling虚拟梳妆台
 ---------------
 
+spring boot +jsp+mysql+mabitis annotation+gradle
+
 Bling一下，看看你有多丑！
 
 ![](media/693d936569230c81f66cfdb9977fd3db.png)
