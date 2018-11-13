@@ -5,7 +5,7 @@ Bling虚拟梳妆台
 
 现在用 spring boot + freemarker + mysql + mybatis annotation + gradle
 
-Bling一下，看看你有多丑！
+Bling一下，看看你有多美！
 
 ![](media/693d936569230c81f66cfdb9977fd3db.png)
 
